@@ -6,6 +6,7 @@ imports:
     - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusAdminApiBundle/Resources/config/app/config.yml" }
+    - { resource: "@LakionSyliusElasticSearchBundle/Resources/config/app/config.yml" }
 
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
@@ -61,3 +62,10 @@ fos_rest:
         rules:
             - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
+
+lakion_sylius_elastic_search:
+        filter_sets:
+            default:
+                filters:
+                    name:
+                        type: string

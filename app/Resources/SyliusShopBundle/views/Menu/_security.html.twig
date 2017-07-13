@@ -1,0 +1,20 @@
+<div class="ui right stackable inverted menu">
+    <div class="item">
+            <form action="{{ path('lakion_elastic_search_shop_product_index') }}" method="get">
+                <div class="ui icon input">
+                    <input type="text" placeholder="{{ 'sylius.ui.search'|trans }}..." name="filter_set[name]" />
+                    <button type="submit" class="ui button mini">
+                        <i class="search icon"></i>
+                    </button>
+                </div>
+            </form>
+    </div>
+    {% if is_granted('ROLE_USER') %}
+        <div class="item">{{ 'sylius.ui.hello'|trans }} {{ app.user.customer.fullName }}!</div>
+        <a href="{{ path('sylius_shop_account_dashboard') }}" class="item">{{ 'sylius.ui.my_account'|trans }}</a>
+        <a href="{{ path('sylius_shop_logout') }}" class="item sylius-logout-button">{{ 'sylius.ui.logout'|trans }}</a>
+    {% else %}
+        <a href="{{ path('sylius_shop_login') }}" class="item">{{ 'sylius.ui.login'|trans }}</a>
+        <a href="{{ path('sylius_shop_register') }}" class="item">{{ 'sylius.ui.register'|trans }}</a>
+    {% endif %}
+</div>

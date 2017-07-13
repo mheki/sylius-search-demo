@@ -15,6 +15,9 @@ sylius_shop:
     requirements:
         _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
 
+sylius_search:
+    resource: "@LakionSyliusElasticSearchBundle/Resources/config/routing.yml"
+
 sylius_shop_payum:
     resource: "@SyliusShopBundle/Resources/config/routing/payum.yml"
 
@@ -23,3 +26,15 @@ sylius_shop_default_locale:
     methods: [GET]
     defaults:
         _controller: sylius.controller.shop.locale_switch:switchAction
+
+lakion_elastic_search_shop_product_index:
+        path: /products
+        methods: [GET]
+        defaults:
+             _controller: lakion_sylius_elastic_search.controller.search:filterAction
+             _sylius:
+                template: "@LakionSyliusElasticSearch/Product/index.html.twig"
+                resource_class: "%sylius.model.product.class%"
+                filter_set: default
+        requirements:
+            slug: .+
