@@ -1,4 +1,4 @@
-**Sylius demo with ElasticSearch plugin**
+## Sylius demo with ElasticSearch plugin ##
 
 This is a Sylius demo with integrated [ElasticSearch plugin](https://github.com/Lakion/SyliusElasticSearchBundle).
 Demonstrates how to add a product search box into the shop.
