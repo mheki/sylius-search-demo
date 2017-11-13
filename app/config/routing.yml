@@ -38,3 +38,13 @@ lakion_elastic_search_shop_product_index:
                 filter_set: default
         requirements:
             slug: .+
+
+app_search:
+    path: /search
+    methods: [GET]
+    defaults:
+        _controller: app.controller.search:searchAction
+        _sylius:
+            template: "Search/search.html.twig"
+            resource_class: "%sylius.model.product.class%"
+            filter_set: default

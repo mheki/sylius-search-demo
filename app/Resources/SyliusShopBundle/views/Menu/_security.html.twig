@@ -1,8 +1,8 @@
 <div class="ui right stackable inverted menu">
     <div class="item">
-            <form action="{{ path('lakion_elastic_search_shop_product_index') }}" method="get">
+            <form action="{{ path('app_search') }}" method="get">
                 <div class="ui icon input">
-                    <input type="text" placeholder="{{ 'sylius.ui.search'|trans }}..." name="filter_set[name]" />
+                    <input type="text" placeholder="{{ 'sylius.ui.search'|trans }}..." name="search" />
                     <button type="submit" class="ui button mini">
                         <i class="search icon"></i>
                     </button>
